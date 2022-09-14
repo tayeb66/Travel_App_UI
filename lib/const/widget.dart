@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_ui/const/style.dart';
 import 'package:travel_app_ui/views/destination_details.dart';
-
 import 'colors.dart';
 
 Widget destinationCard(BuildContext context, String? imagePath) {
@@ -43,14 +42,17 @@ Widget hotDestinationCard(BuildContext context, String? imagePath,
     },
     child: Stack(
       children: [
-        Container(
-          margin: const EdgeInsets.only(right: 20),
-          height: 200,
-          width: 160,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                  image: AssetImage(imagePath ?? ''), fit: BoxFit.cover)),
+        Hero(
+          tag: imagePath ?? '',
+          child: Container(
+            margin: const EdgeInsets.only(right: 20),
+            height: 200,
+            width: 160,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                    image: AssetImage(imagePath ?? ''), fit: BoxFit.cover)),
+          ),
         ),
         Positioned(
           top: 0,
